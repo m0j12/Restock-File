@@ -1,0 +1,22 @@
+screen = display.set_mode((800,600))
+
+
+
+running=True
+while running:
+    for e in event.get():
+        if e.type == QUIT:
+            running = False
+    screen.fill((0,0,0))
+    draw.circle(screen,(255,255,255),(400,300),100,3)
+    ang = 270
+    def clock(secs, mins, hours):
+        ang = 270+6*secs
+        dx = int(cos(radians(-ang))*100)
+        dy = int(sin(radians(-ang))*100)
+        draw.line(screen,(255,0,255),(400,300),(400+dx,300-dy),1)
+        time.wait(1000)
+    ang+=6
+    clock(1,1,1)
+    display.flip()
+quit()
